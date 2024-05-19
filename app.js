@@ -1,9 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-const usersRouter = require('./routes/userRoutes');
-const coursesRouter = require('./routes/courseRoutes');
-const courseSectionsRouter = require('./routes/courseSectionRoutes');
+const usersRouter = require('./routes/userRouter');
+const coursesRouter = require('./routes/courseRouter');
+const courseSectionsRouter = require('./routes/courseSectionRouter');
+const progressRouter = require('./routes/progressRouter');
 
 require('dotenv').config();
 const app = express();
@@ -23,6 +24,7 @@ app.use(express.json());
 app.use('/api/v1/users', usersRouter);
 app.use('/api/v1/courses', coursesRouter);
 app.use('/api/v1/sections', courseSectionsRouter);
+app.use('/api/v1/progress', progressRouter);
 
 
 const PORT = process.env.PORT || 3000;
